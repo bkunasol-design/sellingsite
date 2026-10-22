@@ -1,0 +1,84 @@
+body {
+  font-family: sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+header a {
+  text-decoration: none; 
+  color: inherit;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+nav a {
+  margin-left: 24px;
+}
+nav a[aria-current] {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center; 
+}
+
+.img {
+  border: 1px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+.img.big { 
+  min-height: 320px; 
+}
+
+.img.banner {
+   min-height: 160px; 
+}
+
+.img.banner h1 {
+  margin: 0; 
+}
+
+.hero .img {
+ min-height: 320px; 
+ margin-bottom: 24px; 
+}
+
+.columns {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 24px;
+}
+.columns > section {
+  flex: 1 1 240px;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: inherit;
+}
+
+#options button {
+  display: block; 
+  width: 100%; 
+  padding: 12px; 
+  margin-bottom: 8px;
+}

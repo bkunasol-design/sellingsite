@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASTROPHAGE ROASTERY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">ASTROPHAGE</a>
+    <nav>
+      <a href="coffee.html">Coffee</a>
+      <a href="quiz.html" aria-current="page">Find Yours</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="center">Not sure where to start?</h1>
+    <p class="center">A couple of questions to help you pick your perfect bag, hopefully</p>
+
+    <div id="quiz">
+      <p id="progress"></p>
+      <h2 id="question"></h2>
+      <div id="options"></div>
+    </div>
+
+    <div id="result" hidden>
+      <h2>Your match</h2>
+      <p><a href="coffee-detail.html">Coffee #1</a></p>
+      <p><a href="quiz.html">Start over</a></p>
+    </div>
+  </main>
+
+  <script>
+    const questions = [
+      { text: "Brew method: how do you brew?", options: ["Pour over or drip", "Espresso", "French press or AeroPress", "Not sure yet"] },
+      { text: "Level: which roast level do you like?", options: ["Ultralight", "Light", "Either one"] },
+      { text: "Taste: what do you want in the cup?", options: ["Floral and tea-like", "Juicy fruit", "Sweet and round", "Layered and strange"] },
+      { text: "Adventure: how adventurous are you today?", options: ["Keep it familiar", "Surprise me a little", "Strange is good"] },
+      { text: "Budget: what are you spending?", options: ["Everyday price", "Treat myself"] }
+    ];
+
+    const answers = [];
+    let step = 0;
+
+    function showQuestion() {
+      if (step === questions.length) {
+        document.getElementById("quiz").hidden = true;
+        document.getElementById("result").hidden = false;
+        return;
+      }
+
+      document.getElementById("progress").textContent = "Question #" + (step + 1) + " of " + questions.length;
+      document.getElementById("question").textContent = questions[step].text;
+
+      const box = document.getElementById("options");
+      box.innerHTML = "";
+      questions[step].options.forEach(function (option) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = option;
+        button.onclick = function () {
+          answers.push(option);
+          step++;
+          showQuestion();
+        };
+        box.appendChild(button);
+      });
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
