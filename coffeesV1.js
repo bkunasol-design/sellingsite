@@ -10,7 +10,7 @@ const coffees = [
 const hues = {
   "Gedeb Washed": ["#18211d","#6f7f5c","#f4e6d0","#d9c36a"],
   "Pink Bourbon": ["#220d1a","#8f2650","#f1c98a","#d94a72"],
-  "Dim Light": ["#180f17","#5b2f4a","#e3b57d","#b5654a"],
+  "Nightshift Superstar": ["#180f17","#5b2f4a","#e3b57d","#b5654a"],
   "Afterglow": ["#18111a","#a83f55","#f6d4b9","#f0804f"],
   "Misty Mountain Natural Geisha Lot 31": ["#111a26","#4d6a85","#f3e3df","#e0405a"],
   "Panama Laurina": ["#101b1a","#4f8f86","#f4f1d6","#d6e07a"]
