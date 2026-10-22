@@ -82,3 +82,75 @@ nav a[aria-current] {
   padding: 12px; 
   margin-bottom: 8px;
 }
+
+
+
+/* Starry space background with faded colors.
+   Needs one empty element right after <body>:  <div class="sky"></div> */
+
+:root {
+  --vanguard: #1F2C41;  /* lighter navy at the top */
+  --void: #0f1621;      /* darker navy toward the edges */
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: #D5DAD7;
+}
+
+/* Layer 0: the faded colors */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;            /* sits behind everything */
+  pointer-events: none;   /* clicks pass through it */
+  background:
+    radial-gradient(55vw 35vw at 5% 105%, rgba(183, 43, 60, .14), transparent),  /* faded red glow, bottom left */
+    radial-gradient(40vw 30vw at 95% 60%, rgba(211, 95, 63, .06), transparent),  /* faded orange glow, right */
+    radial-gradient(ellipse at 50% -10%, var(--vanguard), var(--void) 85%);      /* navy fade, light to dark */
+}
+
+.sky::before,
+.sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1: stars. Each radial-gradient is one tiny dot. */
+.sky::before {
+  background:
+    radial-gradient(1px 1px at 8% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 23% 62%, #cfd6e6 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 41% 28%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 57% 81%, #cfd6e6 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 47%, #D3A54F 50%, transparent 51%),  /* one gold star */
+    radial-gradient(1px 1px at 94% 90%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 93%, #cfd6e6 50%, transparent 51%);
+  background-size: 720px 720px;  /* this pattern repeats every 720px */
+  opacity: .55;
+}
+
+/* Layer 2: more stars, on a different repeat size, slowly twinkling */
+.sky::after {
+  background:
+    radial-gradient(1px 1px at 16% 40%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 49% 8%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 64% 55%, #cfd6e6 50%, transparent 51%),
+    radial-gradient(1px 1px at 81% 73%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 3% 85%, #cfd6e6 50%, transparent 51%);
+  background-size: 480px 480px;
+  animation: twinkle 9s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; }
+  to   { opacity: .6; }
+}
+
+/* Skip the twinkle for people who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+  .sky::after { animation: none; opacity: .4; }
+}
