@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASTROPHAGE ROASTERY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Syncopate:wght@400;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a href="main.html" class="logo">ASTROPHAGE</a>
+    <nav>
+      <a href="coffee.html">Coffee</a>
+      <a href="quiz.html" aria-current="page">Find Yours</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main class="quiz">
+    <h1>Not sure where to start?</h1>
+    <p class="sub">A couple of questions to help you pick<br>your perfect bag, hopefully</p>
+    <div id="box"></div>
+  </main>
+  
+  <script src="coffeesV1.js"></script>
+  <script>
+    const questions = [
+      { text: "Brew method: how do you brew?", options: [["Pour over or drip", "filter"], ["Espresso", "espresso"], ["French press or AeroPress", "any"], ["Not sure yet", "any"]] },
+      { text: "Level: which roast do you like?", options: [["Ultralight", "Ultralight"], ["Light", "Light"], ["Either one", "any"]] },
+      { text: "Taste: what do you want in the cup?", options: [["Floral and tea-like", "floral"], ["Juicy fruit", "fruity"], ["Sweet and round", "sweet"], ["Layered and strange", "complex"]] },
+      { text: "Adventure: how adventurous are you today?", options: [["Keep it familiar", 1], ["Surprise me a little", 2], ["Strange is good", 3]] },
+      { text: "Budget: what are you spending?", options: [["Everyday price", "daily"], ["Treat myself", "treat"]] }
+    ];
+    let step = 0, answers = [];
+
+    function best() {
+      const [brew, level, taste, wild, spend] = answers;
+      return coffees.map(c => {
+        let s = (brew === "any" || c.b === brew) ? 3 : c.b === "any" ? 1 : brew === "espresso" ? -9 : 0;
+        if (level === "any" || c.r === level) s += 2;
+        if (c.f === taste) s += 4;
+        s -= Math.abs(c.x - wild) * 1.5;
+        if (c.t === "reserve") s += spend === "treat" ? 2 : -99;
+        return [s, c];
+      }).sort((a, b) => b[0] - a[0])[0][1];
+    }
+
+    function show() {
+      const box = document.getElementById("box");
+      if (step === questions.length) {
+        box.innerHTML = `<p class="q">Your match:</p><div class="match">${card(best())}</div><button type="button" class="again" id="again">Start over</button>`;
+        document.getElementById("again").onclick = () => { step = 0; answers = []; show(); };
+        return;
+      }
+      box.innerHTML = `<p class="q">Question #${step + 1} of ${questions.length}. ${questions[step].text}</p>`;
+      questions[step].options.forEach(function (o) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "opt"; b.textContent = o[0];
+        b.onclick = () => { answers.push(o[1]); step++; show(); };
+        box.appendChild(b);
+      });
+    }
+    show();
+  </script>
+</body>
+</html>

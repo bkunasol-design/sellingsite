@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASTROPHAGE ROASTERY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Syncopate:wght@400;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a href="main.html" class="logo">ASTROPHAGE</a>
+    <nav>
+      <a href="coffee.html" aria-current="page">Coffee</a>
+      <a href="quiz.html">Find Yours</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <main class="wrap" id="detail"></main>
+  <script src="coffeesV1.js"></script>
+  <script>
+    // The page reads which coffee to show from the address, e.g. coffee-detail.html?c=gedeb-washed
+    const i = coffees.findIndex(c => slug(c.n) === new URLSearchParams(location.search).get("c"));
+    if (i < 0) {
+      location.replace("coffee.html");
+    } else {
+      const c = coffees[i], m = more[c.n];
+      const [type, method, dose, water, temp, grind, time, tip] = m.b;
+      const steps = {
+        pour: [`Rinse the filter and warm your server. Grind ${dose} g ${grind}.`, `Bloom with ${dose * 2} g of water at ${temp}°C and let it sit for 40 seconds.`, `Pour slowly in circles up to ${water} g in total, finishing by about 1:30.`, `Let it drain, aiming for ${time} overall. Sharp or sour: grind finer. Dry or bitter: grind coarser.`],
+        aero: [`Set the AeroPress upside down and add ${dose} g ground ${grind}.`, `Pour in ${water} g of water at ${temp}°C and stir gently for 10 seconds.`, `Steep until about 1:30, then flip it onto your cup.`, `Press slowly for 30 seconds and stop at the hiss. Total time near ${time}.`],
+        espresso: [`Dose ${dose} g into a dry, warm basket and level it evenly.`, `Pull ${water} g out with water at ${temp}°C, aiming for ${time}.`, `If it tastes sour, grind finer or pull a little longer. If bitter, go coarser.`, `Let it settle for 30 seconds before tasting. It opens up as it cools.`]
+      }[type];
+      // "You may also like": same flavor, same type, similar adventurousness
+      const like = coffees.map((x, j) => [(x.f === c.f ? 3 : 0) + (x.t === c.t ? 2 : 0) + (x.b === c.b ? 1 : 0) - Math.abs(x.x - c.x) * .5, j])
+        .filter(r => r[1] !== i).sort((a, b) => b[0] - a[0]).slice(0, 3);
+
+      document.title = c.n + " | ASTROPHAGE";
+      document.getElementById("detail").innerHTML = `
+        <a class="back" href="coffee.html">All coffees</a>
+        ${art(c, "wide")}
+        <div class="d-head"><h1>${c.n}</h1><div class="buy"><span>${money(c)}</span><button type="button" class="btn" id="add">Add to Cart</button></div></div>
+        <h2>The Story and Info</h2>
+        <p>${m.s}</p>
+        <p>${c.o}. ${c.d}. ${m.p} process, grown at ${m.a}, harvested ${m.h}. Roasted ${c.r.toLowerCase()}.</p>
+        <h2>Taste Notes</h2>
+        <p class="notes">${c.notes.toLowerCase().replaceAll(", ", " / ")}</p>
+        <p class="meters"><span>Acidity ${m.k[0]}/5</span><span>Sweetness ${m.k[1]}/5</span><span>Body ${m.k[2]}/5</span></p>
+        <h2>Brew Guide</h2>
+        <p>${method}: ${dose} g coffee, ${water} g ${type === "espresso" ? "out" : "water"}, ${temp}°C, ${grind} grind, ${time}.</p>
+        <ol class="steps">${steps.map(t => `<li>${t}</li>`).join("")}</ol>
+        <p class="tip">${tip}</p>
+        <h2>You May Also Like</h2>
+        <div class="likes">${like.map(r => card(coffees[r[1]])).join("")}</div>`;
+
+      document.getElementById("add").onclick = function () {
+        this.textContent = "Added to Cart";
+        setTimeout(() => this.textContent = "Add to Cart", 1500);
+      };
+    }
+  </script>
+</body>
+</html>
