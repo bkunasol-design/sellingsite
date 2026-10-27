@@ -1,3 +1,4 @@
+/* ASTROPHAGE */
 :root {
   --navy: #14122e;
   --text: #f4f2f7;
@@ -5,21 +6,26 @@
   --gold: #D3A54F;
   --aurora: #D35F3F;
   --red: #E0485A;
-  --overlay: rgba(20, 18, 46, .62);
+  --overlay: rgba(20, 18, 46, .62); 
   --logo: "Syncopate", sans-serif;
   --serif: "Source Serif 4", Georgia, serif;
   --sans: "Source Sans 3", system-ui, sans-serif;
   --mono: "Share Tech Mono", monospace;
 }
 
-* { box-sizing: border-box; margin: 0; }
-body { background: var(--navy); 
-  color: var(--text); font-family: var(--sans); 
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+}
+
+body { 
+  background: var(--navy); 
+  color: var(--text); 
+  font-family: var(--sans); 
   line-height: 1.65; 
   overflow-x: hidden; 
   min-height: 100vh; 
 }
-
 a { 
   color: inherit; 
   text-decoration: none; 
@@ -50,12 +56,7 @@ body::after {
   pointer-events: none;
 }
 
-
-
-
-
-
-
+/* Header */
 header { 
   display: flex; 
   justify-content: space-between; 
@@ -72,16 +73,17 @@ header {
 }
 
 nav { 
-  display: flex; gap: 40px; 
+  display: flex; 
+  gap: 40px; 
   font-family: var(--mono); 
   font-size: 1.05rem; 
   color: var(--muted); 
 }
-
 nav a:hover, nav a[aria-current] { 
   color: var(--text); 
 }
 
+/* Photo heroes */
 .hero { 
   display: flex; 
   flex-direction: column; 
@@ -95,8 +97,7 @@ nav a:hover, nav a[aria-current] {
 
 .hero.banner { 
   min-height: 280px; 
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url("images/cherry.jpg"); 
-  background-position: center; 
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url("images/cherry.jpg"); background-position: center; 
 }
 
 .hero h1 { 
@@ -111,13 +112,12 @@ nav a:hover, nav a[aria-current] {
   max-width: 46ch; 
   margin: 24px auto 32px; 
   color: rgba(255, 255, 255, .62); 
-  font-size: 1.1rem; 
+  font-size: 1.1rem;
 }
 
 .btn { 
   display: inline-block; 
-  background: #fff; 
-  color: var(--navy); 
+  background: #fff; color: var(--navy); 
   font-family: var(--serif); 
   font-size: 1.15rem; 
   padding: 16px 38px; 
@@ -131,17 +131,13 @@ nav a:hover, nav a[aria-current] {
 }
 
 
-
-
-
+/* Gradient tiles and cards */
 .art { 
   position: relative; 
   aspect-ratio: 1; 
   overflow: hidden; 
   transition: filter .4s;
-  background: radial-gradient(120% 75% at 0% 105%, var(--g3) 0%, transparent 62%), 
-              radial-gradient(85% 55% at 105% 70%, var(--g4) 0%, transparent 70%), 
-              linear-gradient(185deg, var(--g1) 0%, var(--g2) 58%, var(--g3) 120%); 
+  background: radial-gradient(120% 75% at 0% 105%, var(--g3) 0%, transparent 62%), radial-gradient(85% 55% at 105% 70%, var(--g4) 0%, transparent 70%), linear-gradient(185deg, var(--g1) 0%, var(--g2) 58%, var(--g3) 120%); 
 }
 
 .art.wide { 
@@ -179,15 +175,40 @@ nav a:hover, nav a[aria-current] {
   color: var(--muted); 
 }
 
-.cap em { font-family: var(--serif); color: var(--text); font-size: 1.05rem; }
+.cap em { 
+  font-family: var(--serif); 
+  color: var(--text); 
+  font-size: 1.05rem; 
+}
 
+/* Tiles that use your own pictures */
+.art.pic { 
+  aspect-ratio: auto; 
+  background: none; 
+  overflow: visible; 
+}
 
+.art.pic img { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+}
 
+.art.pic span { 
+  top: 26px; 
+  left: 34px; 
+}
 
+.art.pic.dark span { 
+  color: var(--navy); 
+}
+
+/* Our Selections */
 .cats { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
-  gap: 48px; max-width: 1200px; 
+  gap: 48px; 
+  max-width: 1200px; 
   margin: 64px auto; 
   padding: 0 32px; 
 }
@@ -195,7 +216,7 @@ nav a:hover, nav a[aria-current] {
 .cats h2 { 
   font-family: var(--mono); 
   font-weight: 400; 
-  font-size: 1.5rem; 
+  font-size: 35px; 
   letter-spacing: .08em; 
   text-align: center; 
   margin-bottom: 28px; 
@@ -217,6 +238,7 @@ nav a:hover, nav a[aria-current] {
   display: grid; gap: 36px; 
 }
 
+/* Coffee page */
 .wrap { 
   max-width: 900px; 
   margin: 0 auto; 
@@ -287,10 +309,10 @@ nav a:hover, nav a[aria-current] {
 }
 
 .steps { 
-  padding-left: 1.3rem;
-   display: grid; 
-   gap: 10px; 
-   color: rgba(255, 255, 255, .78); 
+  padding-left: 1.3rem; 
+  display: grid; 
+  gap: 10px; 
+  color: rgba(255, 255, 255, .78); 
 }
 
 .steps li::marker { 
@@ -312,12 +334,8 @@ nav a:hover, nav a[aria-current] {
   margin-top: 24px; 
 }
 
-
-
-
-
-
-.quiz { 
+/* Find Yours (quiz) */
+.quiz {
   max-width: 640px; 
   margin: 0 auto; 
   padding: 24px 24px 96px; 
@@ -352,8 +370,7 @@ nav a:hover, nav a[aria-current] {
   width: 100%; 
   margin-bottom: 14px; 
   padding: 16px; 
-  background: #fff; 
-  color: var(--navy); 
+  background: #fff; color: var(--navy); 
   border: 0; 
   border-radius: 24px; 
   font-family: var(--serif); 
@@ -382,10 +399,7 @@ nav a:hover, nav a[aria-current] {
   cursor: pointer; 
 }
 
-
-
-
-
+/* About Us */
 .about { 
   max-width: 1200px; 
   margin: 0 auto; 

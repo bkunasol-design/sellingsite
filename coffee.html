@@ -28,7 +28,7 @@
       <section class="cat-reserve"><h2>Reserves</h2><div class="tiles" id="reserve"></div></section>
     </div>
   </main>
-  <script src="coffeesV1.js"></script>
+  <script src="coffees.js"></script>
   <script>
     ["single", "blend", "reserve"].forEach(function (type) {
       document.getElementById(type).innerHTML = coffees.filter(c => c.t === type).map(c => card(c)).join("");
