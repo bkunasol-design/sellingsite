@@ -1,16 +1,3 @@
-// Coffee data and helpers shared by the coffee, detail and quiz pages.
-// ====================================================================
-//  YOUR OWN PICTURES: this is the list to edit
-//
-//  1. Put two pictures in the images folder, named after the coffee:
-//       images/nyeri-kamwangi.png        (the square tile)
-//       images/nyeri-kamwangi-wide.png   (the wide banner on its own page)
-//  2. Add one line for that coffee below. The word says what color the
-//     coffee's name should be on each picture:
-//       "dark"  = dark name, for pictures that are light in the top-left
-//       "light" = white name, for pictures that are dark in the top-left
-//  Coffees that are not listed here keep the generated gradient.
-// ====================================================================
 const pictures = {
   "Gedeb Heirloom Washed":   { tile: "dark", wide: "dark" },
   "Nyeri Kamwangi AA": { tile: "light", wide: "dark" },
@@ -112,7 +99,7 @@ const more = {
     k:[3,4,4], 
     b:["espresso","Espresso",18,40,94,"fine","28 to 32 s","Lovely with milk, it keeps its sweetness."]
   },
-  
+
   "Night Shift": {
     s:"A fruit-forward espresso blend: natural Ethiopian for raspberry and Brazilian for cocoa and body. It pulls bright and tastes like orange peel on dark chocolate. It stays lively in milk without turning roasty.", 
     p:"Natural", 
@@ -162,7 +149,7 @@ const more = {
 const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 const money = c => `${c.w}, $${c.p}`;
 
-// Tile with the name in the top-left corner. Uses your picture if the coffee is in the "pictures" list at the top of this file.
+
 function art(c, cls = "") {
   const [a, b, d, e] = hues[c.n];
   const vars = `--g1:${a};--g2:${b};--g3:${d};--g4:${e}`;
@@ -171,7 +158,7 @@ function art(c, cls = "") {
   const wide = cls.includes("wide");
   const file = `images/${slug(c.n)}${wide ? "-wide" : ""}.png`;
   const dark = (wide ? p.wide : p.tile) === "dark" ? "dark" : "";
-  // If the picture can't be found, say where we looked in the console and fall back to the gradient
+
   return `<div class="art pic ${dark} ${cls}" style="${vars}"><img src="${file}" alt="" onerror="console.warn('Picture not found:', this.src); this.parentNode.classList.remove('pic', 'dark'); this.remove()"><span>${c.n}</span></div>`;
 }
 function card(c) {
