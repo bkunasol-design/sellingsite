@@ -74,7 +74,9 @@ const more = {
     p:"Washed", 
     a:"1,700 to 1,900 m", 
     h:"Apr to Jun", k:[3,4,3], 
-    b:["pour","Cone dripper",15,250,95,"medium","2:45 to 3:15","Forgiving, so a good first light roast."]},
+    b:["pour","Cone dripper",15,250,95,"medium","2:45 to 3:15","Forgiving, so a good first light roast."]
+  },
+
   "Sidama Natural": {
     s:"Sidama cherries are dried whole on raised beds and turned by hand for weeks, so the fruit sugars soak into the bean. The cup is loud and jammy. We roast it light so it stays bright instead of boozy.", 
     p:"Natural", 
@@ -110,6 +112,7 @@ const more = {
     k:[3,4,4], 
     b:["espresso","Espresso",18,40,94,"fine","28 to 32 s","Lovely with milk, it keeps its sweetness."]
   },
+  
   "Night Shift": {
     s:"A fruit-forward espresso blend: natural Ethiopian for raspberry and Brazilian for cocoa and body. It pulls bright and tastes like orange peel on dark chocolate. It stays lively in milk without turning roasty.", 
     p:"Natural", 

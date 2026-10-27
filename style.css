@@ -1,4 +1,3 @@
-/* ASTROPHAGE */
 :root {
   --navy: #14122e;
   --text: #f4f2f7;
@@ -21,7 +20,7 @@
 body { 
   background: var(--navy); 
   color: var(--text); 
-  font-family: var(--sans); 
+  font-family: var(--mono); 
   line-height: 1.65; 
   overflow-x: hidden; 
   min-height: 100vh; 
@@ -56,7 +55,6 @@ body::after {
   pointer-events: none;
 }
 
-/* Header */
 header { 
   display: flex; 
   justify-content: space-between; 
@@ -67,8 +65,8 @@ header {
 }
 
 .logo { 
-  font-family: var(--logo); 
-  font-size: 1.5rem; 
+  font-family: var(--mono); 
+  font-size: 30px; 
   letter-spacing: .18em; 
 }
 
@@ -83,7 +81,6 @@ nav a:hover, nav a[aria-current] {
   color: var(--text); 
 }
 
-/* Photo heroes */
 .hero { 
   display: flex; 
   flex-direction: column; 
@@ -118,7 +115,7 @@ nav a:hover, nav a[aria-current] {
 .btn { 
   display: inline-block; 
   background: #fff; color: var(--navy); 
-  font-family: var(--serif); 
+  font-family: var(--mono); 
   font-size: 1.15rem; 
   padding: 16px 38px; 
   border: 0; 
@@ -130,8 +127,6 @@ nav a:hover, nav a[aria-current] {
   background: var(--gold); 
 }
 
-
-/* Gradient tiles and cards */
 .art { 
   position: relative; 
   aspect-ratio: 1; 
@@ -181,7 +176,6 @@ nav a:hover, nav a[aria-current] {
   font-size: 1.05rem; 
 }
 
-/* Tiles that use your own pictures */
 .art.pic { 
   aspect-ratio: auto; 
   background: none; 
@@ -203,7 +197,6 @@ nav a:hover, nav a[aria-current] {
   color: var(--navy); 
 }
 
-/* Our Selections */
 .cats { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
@@ -238,7 +231,6 @@ nav a:hover, nav a[aria-current] {
   display: grid; gap: 36px; 
 }
 
-/* Coffee page */
 .wrap { 
   max-width: 900px; 
   margin: 0 auto; 
@@ -291,10 +283,11 @@ nav a:hover, nav a[aria-current] {
 .wrap p { 
   color: rgba(255, 255, 255, .78); 
   margin-bottom: 14px; 
+  font-family: var(--mono);
 }
 
 .wrap .notes { 
-  font-family: var(--serif); 
+  font-family: var(--mono); 
   font-style: italic; 
   font-size: 1.9rem; 
   color: var(--text); 
@@ -313,6 +306,7 @@ nav a:hover, nav a[aria-current] {
   display: grid; 
   gap: 10px; 
   color: rgba(255, 255, 255, .78); 
+  font-family: var(--mono);
 }
 
 .steps li::marker { 
@@ -321,7 +315,7 @@ nav a:hover, nav a[aria-current] {
 
 .wrap .tip { 
   margin-top: 18px; 
-  font-family: var(--serif); 
+  font-family: var(--mono); 
   font-style: italic; 
   color: var(--gold); 
   font-size: 1.2rem; 
@@ -334,7 +328,6 @@ nav a:hover, nav a[aria-current] {
   margin-top: 24px; 
 }
 
-/* Find Yours (quiz) */
 .quiz {
   max-width: 640px; 
   margin: 0 auto; 
@@ -399,7 +392,6 @@ nav a:hover, nav a[aria-current] {
   cursor: pointer; 
 }
 
-/* About Us */
 .about { 
   max-width: 1200px; 
   margin: 0 auto; 
