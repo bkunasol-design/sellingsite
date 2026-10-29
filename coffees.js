@@ -6,7 +6,11 @@ const pictures = {
   "Dim Light":      { tile: "dark", wide: "dark" },
   "Afterglow":      { tile: "dark", wide: "light" },
   "Quiet Hours":    { tile: "light", wide: "light" },
-  "Night Shift":    { tile: "light", wide: "dark" }
+  "Night Shift":    { tile: "light", wide: "dark" },
+  "Boquete Geisha": {tile: "light", wide: "light"},
+  "Misty Mountain Natural Geisha Lot 31": {tile: "light", wide: "light"},
+  "Gesha Village": {tile: "light", wide: "light"},
+  "Panama Laurina NB-8": {tile: "light", wide: "light"}
 };
 
 const coffees = [
