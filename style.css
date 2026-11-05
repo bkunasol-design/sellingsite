@@ -98,7 +98,7 @@ nav a:hover, nav a[aria-current] {
 }
 
 .hero h1 { 
-  font-family: var(--serif); 
+  font-family: var(--mono); 
   font-weight: 400; 
   font-size: clamp(2.4rem, 6vw, 4.6rem); 
   line-height: 1.1; 
@@ -110,6 +110,29 @@ nav a:hover, nav a[aria-current] {
   margin: 24px auto 32px; 
   color: rgba(255, 255, 255, .62); 
   font-size: 1.1rem;
+}
+
+.intro { 
+  text-align: center; 
+  padding: 96px 24px 120px; 
+}
+
+.intro h2 { 
+  font-family: var(--mono); 
+  font-weight: 400; 
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem); 
+  letter-spacing: .16em; 
+  text-transform: uppercase; 
+  margin-bottom: 36px; 
+}
+
+.intro p { 
+  max-width: 100ch; 
+  margin: 0 auto 40px; 
+  font-family: var(--mono); 
+  font-size: 1.15rem; 
+  line-height: 1.8; 
+  color: rgba(255, 255, 255, .72); 
 }
 
 .btn { 
@@ -125,6 +148,15 @@ nav a:hover, nav a[aria-current] {
 
 .btn:hover { 
   background: var(--gold); 
+}
+
+.preview { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  column-gap: clamp(24px, 5vw, 72px); 
+  max-width: 1100px; 
+  margin: 20px auto 0; 
+  text-align: left; 
 }
 
 .art { 
@@ -202,8 +234,8 @@ nav a:hover, nav a[aria-current] {
 .cats { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
-  column-gap: 100px; 
-  max-width: 1200px; 
+  column-gap: 200px; 
+  max-width: 1400px; 
   margin: 64px auto; 
   padding: 0 32px; 
 }
@@ -226,6 +258,18 @@ nav a:hover, nav a[aria-current] {
 }
 
 .cat-reserve h2 { 
+  color: var(--red); 
+}
+
+.cat-single .cap em, .cat-single .cap span { 
+  color: var(--gold); 
+}
+
+.cat-blend .cap em, .cat-blend .cap span { 
+  color: var(--aurora); 
+}
+
+.cat-reserve .cap em, .cat-reserve .cap span { 
   color: var(--red); 
 }
 
@@ -461,4 +505,23 @@ nav a:hover, nav a[aria-current] {
 .follow .btn { 
   padding: 14px 28px; 
   font-size: 1.05rem; 
+}
+
+.quiz-note { 
+  text-align: center; 
+  margin: 48px 24px 0; 
+  font-family: var(--mono); 
+  font-size: 1.1rem; 
+  color: var(--text); 
+}
+
+.quiz-note a { 
+  color: var(--text); 
+  border-bottom: 1px solid currentColor; 
+  padding-bottom: 2px; 
+  transition: color .25s; 
+}
+
+.quiz-note a:hover { 
+  color: var(--gold); 
 }

@@ -26,7 +26,25 @@
       <p>COFFEE IS AN EXPRESSION OF TIME AND THE MERGING OF TRADITION AND INNOVATION. ITS THE INTERACTION OF SOIL, SEED AND SUN WITH HUMAN INTERVENTION AND THE CHAOS OF THE UNIVERSE</p>
       <a href="coffee.html" class="btn">Shop Our Coffee</a>
     </section>
+
+    <section class="intro">
+      <h2>Who/What We Are</h2>
+      <p>Astrophage is a small specialty roaster built around one idea: light roasts, tasted clearly. We buy carefully, roast gently, and tell you exactly what went into every bag. Light roast can be a new experience for many people, so we suggest approaching it more like a fruit juice than the medium or dark roasts you'd get from St*rb*cks. Coffee starts out as a fruit, the coffee cherry, so it only feels right to preserve its fruity, sweet, and bright flavors. We encourage you to try it with an open mind and an open palate. Enjoy! XOXO</p>
+      <div class="preview" id="preview">
+        <script src="coffees.js"></script>
+          <script>
+            document.getElementById("preview").innerHTML = ["single", "blend", "reserve"]
+              .map(type => `<div class="cat-${type}">${card(coffees.find(c => c.t === type))}</div>`)
+              .join("");
+        </script>
+      </div>  
+    </section>
   </main>
 
+    <section class="follow">
+    <p>Follow us on:</p>
+    <p><a href="#">Insta</a>, <a href="#">Facebook</a></p>
+    <p>Email: <a href="mailto:Something@what.com">Something@what.com</a></p>
+  </section>
 </body>
 </html>

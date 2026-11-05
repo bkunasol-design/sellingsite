@@ -24,6 +24,7 @@
     <section class="hero banner">
       <h1>Our Selections</h1>
     </section>
+    <p class="quiz-note">If you need help finding the right coffee, go to <a href="quiz.html">our quiz</a>.</p>
     <div class="cats">
       <section class="cat-single">
         <h2>Single Origins</h2>
@@ -48,5 +49,11 @@
       document.getElementById(type).innerHTML = coffees.filter(c => c.t === type).map(c => card(c)).join("");
     });
   </script>
+
+   <section class="follow">
+    <p>Follow us on:</p>
+    <p><a href="#">Insta</a>, <a href="#">Facebook</a></p>
+    <p>Email: <a href="mailto:Something@what.com">Something@what.com</a></p>
+  </section>
 </body>
 </html>

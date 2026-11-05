@@ -43,18 +43,36 @@
       document.getElementById("detail").innerHTML = `
         <a class="back" href="coffee.html">All coffees</a>
         ${art(c, "wide")}
-        <div class="d-head"><h1>${c.n}</h1><div class="buy"><span>${money(c)}</span><button type="button" class="btn" id="add">Add to Cart</button></div></div>
+        <div class="d-head">
+          <h1>${c.n}</h1><div class="buy">
+            <span>${money(c)}</span>
+            <button type="button" class="btn" id="add">Add to Cart</button>
+            </div>
+            </div>
         <h2>The Story</h2>
         <p>${m.s}</p>
+
         <h2>Info</h2>
-        <p>${c.o}.<br> ${c.d}.<br> ${m.p} Process,<br> Grown at ${m.a},<br> Harvested ${m.h}.<br> Roasted ${c.r.toLowerCase()}.</p>
+          <p>Origin ${c.o}<br> 
+          Varietal ${c.d}<br> 
+           Process ${m.p}<br> 
+          Grown at ${m.a}<br> 
+          Harvest Date ${m.h}<br> 
+          Roasted Level ${c.r}</p>
+
         <h2>Taste Notes</h2>
+
         <p class="notes">${c.notes.toLowerCase().replaceAll(", ", " / ")}</p>
-        <p class="meters"><span>Acidity ${m.k[0]}/5</span><span>Sweetness ${m.k[1]}/5</span><span>Body ${m.k[2]}/5</span></p>
+        <p class="meters">
+          <span>Acidity ${m.k[0]}/5</span>
+          <span>Sweetness ${m.k[1]}/5</span>
+          <span>Body ${m.k[2]}/5</span></p>
+
         <h2>Brew Guide</h2>
+
         <p>${method}: ${dose} g coffee, ${water} g ${type === "espresso" ? "out" : "water"}, ${temp}°C, ${grind} grind, ${time}.</p>
         <ol class="steps">${steps.map(t => `<li>${t}</li>`).join("")}</ol>
-        <p class="tip">${tip}</p>
+        <p class="tip">Tip: ${tip}</p>
         <h2>You May Also Like</h2>
         <div class="likes">${like.map(r => card(coffees[r[1]])).join("")}</div>`;
 
@@ -64,5 +82,10 @@
       };
     }
   </script>
+    <section class="follow">
+    <p>Follow us on:</p>
+    <p><a href="#">Insta</a>, <a href="#">Facebook</a></p>
+    <p>Email: <a href="mailto:Something@what.com">Something@what.com</a></p>
+  </section>
 </body>
 </html>
